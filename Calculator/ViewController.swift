@@ -18,15 +18,22 @@ class ViewController: UIViewController {
         
     @IBAction func appendDigit(sender: UIButton) {
         
+        
         let digit = sender.currentTitle!;
         println("Let digit =\(digit)")
-       
+        
+        
+//        if display.text!.rangeOfString(".") != nil{
+        if digit.rangeOfString(".") == nil  || display.text!.rangeOfString(".") == nil{
+        
         if (userIsInTheMiddleofTypingANumber){
+            
             display.text = display.text! + digit
         }else{
             display.text = digit
             userIsInTheMiddleofTypingANumber = true
         }
+            }
         
     }
     
@@ -57,7 +64,6 @@ class ViewController: UIViewController {
             enter()
         }
     }
-    
 
     var operandStack = Array<Double>()
     
